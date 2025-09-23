@@ -166,7 +166,7 @@ contract Starknet is
         return NamedStorage.getUintValue(CONFIG_HASH_TAG);
     }
 
-    function setVerifierAddress(address value) internal {
+    function setVerifierAddress(address value) public {
         NamedStorage.setAddressValueOnce(VERIFIER_ADDRESS_TAG, value);
     }
 

@@ -11,6 +11,10 @@ We recommend starting from [Setting up the environment](https://cairo-lang.org/d
 
 # Installation instructions
 
+## Karnot >
+We've added foundry.toml
+out can be created by simply doing `forge build`
+
 You should be able to download the python package zip file directly from
 [github](https://github.com/starkware-libs/cairo-lang/releases/tag/v0.14.0)
 and install it using ``pip``.

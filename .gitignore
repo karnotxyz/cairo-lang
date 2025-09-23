@@ -2,3 +2,8 @@
 __pycache__/
 cairo-lang-*.zip
 /.vscode/
+
+out
+node_modules
+cache
+.idea
