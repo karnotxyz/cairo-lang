@@ -450,9 +450,9 @@ contract Starknet is
         require(programOutput[StarknetOutput.USE_KZG_DA_OFFSET] == 0, "UNEXPECTED_KZG_DA_FLAG");
 
         bytes32 stateTransitionFact = OnchainDataFactTreeEncoder.encodeFactWithOnchainData(
-            programOutput,
+                programOutput,
             OnchainDataFactTreeEncoder.DataAvailabilityFact(onchainDataHash, onchainDataSize)
-        );
+            );
         updateStateInternal(programOutput, stateTransitionFact);
         // Note that updateStateInternal does an external call, and it shouldn't be followed by
         // storage changes.
@@ -492,5 +492,13 @@ contract Starknet is
 
         // Re-entrancy protection (see above).
         state().checkNewBlockNumber(programOutput);
+    }
+
+    function updateStateOverride(
+        uint256 globalRoot,
+        int256 blockNumber,
+        uint256 blockHash
+    ) public onlyOperator {
+        state().updateOverride(globalRoot, blockNumber, blockHash);
     }
 }
