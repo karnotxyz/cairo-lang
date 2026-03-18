@@ -79,4 +79,10 @@ library StarknetState {
         );
         state.globalRoot = CommitmentTreeUpdateOutput.getNewRoot(commitment_tree_update);
     }
+
+    function updateOverride(State storage state, uint256 globalRoot, int256 blockNumber, uint256 blockHash) internal {
+        state.blockNumber = blockNumber;
+        state.globalRoot = globalRoot;
+        state.blockHash = blockHash;
+    }
 }
