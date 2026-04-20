@@ -143,35 +143,16 @@ library StarknetOutput {
                 );
                 messages[messageHash] += 1;
             } else {
-                {
-                    bytes32 messageHash = keccak256(
-                        abi.encodePacked(programOutputSlice[offset:endOffset])
-                    );
-
-                    uint256 msgFeePlusOne = messages[messageHash];
-                    require(msgFeePlusOne > 0, "INVALID_MESSAGE_TO_CONSUME");
-                    totalMsgFees += msgFeePlusOne - 1;
-                    messages[messageHash] = 0;
-                }
-
-                uint256 nonce = programOutputSlice[offset + MESSAGE_TO_L2_NONCE_OFFSET];
-                uint256[] memory messageSlice = (uint256[])(
-                    programOutputSlice[offset + MESSAGE_TO_L2_PREFIX_SIZE:endOffset]
-                );
-                emit IStarknetMessagingEvents.ConsumedMessageToL2(
-                    // from=
-                    address(
-                        uint160(programOutputSlice[offset + MESSAGE_TO_L2_FROM_ADDRESS_OFFSET])
-                    ),
-                    // to=
-                    programOutputSlice[offset + MESSAGE_TO_L2_TO_ADDRESS_OFFSET],
-                    // selector=
-                    programOutputSlice[offset + MESSAGE_TO_L2_SELECTOR_OFFSET],
-                    // payload=
-                    messageSlice,
-                    // nonce =
-                    nonce
-                );
+//                {
+//                    bytes32 messageHash = keccak256(
+//                        abi.encodePacked(programOutputSlice[offset:endOffset])
+//                    );
+//
+//                    uint256 msgFeePlusOne = messages[messageHash];
+//                    require(msgFeePlusOne > 0, "INVALID_MESSAGE_TO_CONSUME");
+//                    totalMsgFees += msgFeePlusOne - 1;
+//                    messages[messageHash] = 0;
+//                }
             }
 
             offset = endOffset;

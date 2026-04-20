@@ -188,7 +188,7 @@ contract Starknet is
         NamedStorage.setAddressValue(VERIFIER_ADDRESS_TAG, value);
     }
 
-    function initVerifierAddress(address value) internal {
+    function initVerifierAddress(address value) public {
         NamedStorage.setAddressValueOnce(VERIFIER_ADDRESS_TAG, value);
     }
 

@@ -5,3 +5,7 @@ cairo-lang-*.zip
 node_modules/
 /deploy and upgrade/.local-deployment.json
 /deploy and upgrade/.production-deployment.json
+
+out
+cache
+.idea
